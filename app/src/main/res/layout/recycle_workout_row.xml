@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android:com.daimajia.swipe.SwipeLayout
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:id="@+id/recycle_workout_row_slider"
+    android:layout_margin="5dp"
+    android:nestedScrollingEnabled="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="#ffffff"
+            android:tag="Bottom3"
+            android:layout_width="160dp"
+            android:weightSum="1"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:text="Test1"
+                android:layout_weight="0.5"
+
+                android:background="@color/background_material_light"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:text="Test2"
+                android:background="@color/material_deep_teal_200"/>
+            <!--What you want to show-->
+        </LinearLayout>
+        <!-- Bottom View End-->
+        <!-- Surface View Start -->
+        <LinearLayout
+
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--What you want to show in SurfaceView-->
+        </LinearLayout>
+ </android:com.daimajia.swipe.SwipeLayout>
