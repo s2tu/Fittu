@@ -18,10 +18,8 @@ public class WorkoutPlansAdapter extends RecyclerView.Adapter<WorkoutPlansAdapte
 
     public WorkoutPlansAdapter() {
     }
-    private static boolean state;
-    public Boolean Returnstate(){
-        return state;
-    }
+
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         protected SwipeLayout mSwipeLayout;
@@ -36,42 +34,24 @@ public class WorkoutPlansAdapter extends RecyclerView.Adapter<WorkoutPlansAdapte
             mSwipeLayout.addSwipeListener(new SwipeLayout.SwipeListener() {
                 @Override
                 public void onClose(SwipeLayout layout) {
-                    state = false;
-                    //when the SurfaceView totally cover the BottomView.
                 }
                 @Override
                 public void onUpdate(SwipeLayout layout, int leftOffset, int topOffset) {
-                    state = false;
+
                 }
                 @Override
                 public void onStartOpen(SwipeLayout layout) {
-                    state = false;
-                  //  test.setScrollEnabled(false);
-                    //System.out.println(test.canScrollVertically());
+
                 }
                 @Override
                 public void onOpen(SwipeLayout layout) {
-                    state = false;
-                    //when the BottomView totally show.
                 }
                 @Override
                 public void onStartClose(SwipeLayout layout) {
-                    state = false;
+
                 }
                 @Override
                 public void onHandRelease(SwipeLayout layout, float xvel, float yvel) {
-                    if (xvel == 0 && yvel == 0){
-                        state = true;
-
-                    }else{
-                        state = false;
-                    }
-
-
-
-
-                   // test.setScrollEnabled(true);
-                    //System.out.println(test.canScrollVertically());
                 }
             });
         }

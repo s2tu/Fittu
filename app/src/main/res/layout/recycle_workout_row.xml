@@ -17,7 +17,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
-                android:text="Test1"
+                android:text="UPDATE"
                 android:layout_weight="0.5"
 
                 android:background="@color/background_material_light"/>
@@ -25,7 +25,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
-                android:text="Test2"
+                android:text="UPDATE"
                 android:background="@color/material_deep_teal_200"/>
             <!--What you want to show-->
         </LinearLayout>
