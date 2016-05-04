@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android:com.daimajia.swipe.SwipeLayout
+<com.daimajia.swipe.SwipeLayout
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:id="@+id/recycle_workout_row_slider"
@@ -38,4 +38,4 @@
             android:layout_height="match_parent">
             <!--What you want to show in SurfaceView-->
         </LinearLayout>
- </android:com.daimajia.swipe.SwipeLayout>
+ </com.daimajia.swipe.SwipeLayout>
