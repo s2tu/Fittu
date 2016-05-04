@@ -8,6 +8,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.app.DialogFragment;
 
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -23,7 +24,7 @@ import android.widget.TextView;
  * Created by Sonny on 5/4/2016.
  */
 public  class dialogFragment extends DialogFragment {
-
+    public String dialogMessage;
     public static dialogFragment newInstance(String title) {
         dialogFragment frag = new dialogFragment();
         Bundle args = new Bundle();
@@ -34,7 +35,7 @@ public  class dialogFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-       // String title = getArguments().getInt("title");
+        String title = getArguments().getString("title");
         setCancelable(false);
         final Dialog  dialog = new Dialog ((WorkoutExercise)getActivity()){
 
@@ -50,15 +51,19 @@ public  class dialogFragment extends DialogFragment {
                             v.clearFocus();
                             InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                             imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                            EditText dialogtext = (EditText) this.findViewById(R.id.dialog_text);
+                            dialogMessage = dialogtext.getText().toString();
+                            Log.i("FragmentAlertDialog",dialogtext.getText().toString() );
                         }
                     }
+
                 }
                 return super.dispatchTouchEvent( event );
             }
 
         };
         dialog.setContentView(R.layout.dialog_fragment);
-        dialog.setTitle("Test");
+        dialog.setTitle(title);
         dialog.setCancelable(false);
 
         //deselect text box after enter
@@ -71,6 +76,8 @@ public  class dialogFragment extends DialogFragment {
                     dialogtext.clearFocus();
                     InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    dialogMessage = dialogtext.getText().toString();
+                    Log.i("FragmentAlertDialog",dialogtext.getText().toString() );
                 }
                 return false;
             }

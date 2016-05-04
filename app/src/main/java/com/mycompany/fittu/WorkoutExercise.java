@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class WorkoutExercise extends Activity {
@@ -21,6 +22,7 @@ public class WorkoutExercise extends Activity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     public static final String QUANTITY_DIALOG = "QUANTITYDIALOG";
+    public DialogFragment  dialogfragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +44,17 @@ public class WorkoutExercise extends Activity {
         showDialog();
     }
     void showDialog() {
-        DialogFragment  newFragment = dialogFragment.newInstance("Test");
-        newFragment.show(getFragmentManager(), "dialog");
+        dialogfragment = dialogFragment.newInstance("Enter a Workout Name");
+        dialogfragment.show(getFragmentManager(), "dialog");
     }
 
     public void doPositiveClick() {
+
+        TextView workoutName = (TextView) findViewById(R.id.workoutName);
+        workoutName.setText(((dialogFragment)dialogfragment).dialogMessage);
         // Do stuff here.
         Log.i("FragmentAlertDialog", "Positive click!");
+        Log.i("FragmentAlertDialog",workoutName.getText().toString());
     }
 
     public void doNegativeClick() {
