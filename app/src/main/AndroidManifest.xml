@@ -27,6 +27,10 @@
             android:name=".WorkoutExercise"
             android:label="@string/title_activity_workout_exercise" >
         </activity>
+        <activity
+            android:name=".WorkoutSetReps"
+            android:label="@string/title_activity_workout_setreps" >
+        </activity>
     </application>
 
 </manifest>

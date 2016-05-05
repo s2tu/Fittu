@@ -24,7 +24,6 @@ import android.widget.TextView;
  * Created by Sonny on 5/4/2016.
  */
 public  class dialogFragment extends DialogFragment {
-    public String dialogMessage;
     public static dialogFragment newInstance(String title) {
         dialogFragment frag = new dialogFragment();
         Bundle args = new Bundle();
@@ -42,6 +41,7 @@ public  class dialogFragment extends DialogFragment {
             //for losing focus on text box
             @Override
             public boolean dispatchTouchEvent(MotionEvent event) {
+                Log.i("dispatchTouchEvent", event.toString());
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     View v = getCurrentFocus();
                     if ( v instanceof EditText) {
@@ -52,8 +52,6 @@ public  class dialogFragment extends DialogFragment {
                             InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                             imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                             EditText dialogtext = (EditText) this.findViewById(R.id.dialog_text);
-                            dialogMessage = dialogtext.getText().toString();
-                            Log.i("FragmentAlertDialog",dialogtext.getText().toString() );
                         }
                     }
 
@@ -76,8 +74,6 @@ public  class dialogFragment extends DialogFragment {
                     dialogtext.clearFocus();
                     InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                    dialogMessage = dialogtext.getText().toString();
-                    Log.i("FragmentAlertDialog",dialogtext.getText().toString() );
                 }
                 return false;
             }
@@ -88,7 +84,7 @@ public  class dialogFragment extends DialogFragment {
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((WorkoutExercise)getActivity()).doPositiveClick();
+                ((WorkoutExercise)getActivity()).doPositiveClick(dialog);
                 dialog.dismiss();
             }
         });
